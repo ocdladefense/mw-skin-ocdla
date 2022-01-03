@@ -155,7 +155,7 @@ class OcdlaTemplate extends BaseTemplate {
 	 */
 	public function execute() {
 		global $wgLang, $wgStylePath, $wgVectorUseIconWatch, $wgRequest, $wgUser,
-		$wgAuthOcdla_HostRedirect, $wgUseCustomContactForms;
+		$wgPersonalUrls_HostRedirect, $wgUseCustomContactForms;
 
 		$this->skin = $this->data['skin'];
 		
@@ -292,7 +292,7 @@ class OcdlaTemplate extends BaseTemplate {
 	  			-->
 	  			<li id="header-login">
 	  				<?php
-	  					$requestServer = $wgAuthOcdla_HostRedirect;	
+	  					$requestServer = $wgPersonalUrls_HostRedirect;	
 	  					$requestUrl = $wgRequest->getRequestURL();			
 							$retURL = urlencode($requestServer.$requestUrl);
 	  				?>
