@@ -154,8 +154,8 @@ class OcdlaTemplate extends BaseTemplate {
 	 * Outputs the entire contents of the (X)HTML page
 	 */
 	public function execute() {
-		global $wgLang, $wgStylePath, $wgVectorUseIconWatch, $wgRequest, $wgUser,
-		$wgPersonalLinks_HostRedirect, $wgUseCustomContactForms;
+		global $wgLang, $wgStylePath, $wgVectorUseIconWatch, $wgRequest, $wgUser, $wgPersonalLinks_HostRedirect;
+		global $wgUseCustomContactForms, $wgScriptPath;
 
 		$this->skin = $this->data['skin'];
 		
@@ -257,7 +257,7 @@ class OcdlaTemplate extends BaseTemplate {
 		
     <div id="wrapper">
     <div id="masthead">
-      	<a href='/' class="masthead_link">&nbsp;</a>
+      	<a href='<?php print $wgScriptPath; ?>/' class="masthead_link">&nbsp;</a>
       	<div class="ocdla_link header_link">
       		<a href="//www.ocdla.org" title="Go to the OCDLA homepage">
       			<img src="<?php print $this->skinImagePath; ?>/ocdla_link.gif" alt="Go to the OCDLA website" />
@@ -266,29 +266,29 @@ class OcdlaTemplate extends BaseTemplate {
       		<a href="//www.ocdla.org" title="Go to the OCDLA homepage">OCDLA HOME</a>
       	</div>
       	<div class="getinvolved_link header_link">
-      		<a href="/Get_Involved" title="Get Involved">
+      		<a href="<?php print $wgScriptPath; ?>/Get_Involved" title="Get Involved">
       			<img src="<?php print $this->skinImagePath; ?>/get_involved.gif" alt="Get Inolved with the Library of Defense" />
       		</a>
       		<br />
-      		<a href="/Get_Involved" title="Get Involved">GET INVOLVED</a>
+      		<a href="<?php print $wgScriptPath; ?>/Get_Involved" title="Get Involved">GET INVOLVED</a>
       	</div>
       	<div class="masthead_filler">&nbsp;</div>
     </div>
     <div id="submast">
 	    <ul class="submastlinks">
-	      <li><a href="/">Main Entrance</a></li>
-	  		<li><a href="/Blog:Main">Blog</a></li>
-	  		<li><a href="/Blog:Case_Reviews">Case Reviews</a></li>
-	  		<li><a href="/Public:Subscriptions">OCDLA Books Online</a></li>
-	  		<li><a href="/Resources">Resources</a></li>
-	  		<li><a href="/User:Ryan">Ryan Scott</a></li>
-	  		<li><a href="/How_To_Edit">Edit This Site!</a></li>
+	      <li><a href="<?php print $wgScriptPath; ?>/">Main Entrance</a></li>
+	  		<li><a href="<?php print $wgScriptPath; ?>/Blog:Main">Blog</a></li>
+	  		<li><a href="<?php print $wgScriptPath; ?>/Blog:Case_Reviews">Case Reviews</a></li>
+	  		<li><a href="<?php print $wgScriptPath; ?>/Public:Subscriptions">OCDLA Books Online</a></li>
+	  		<li><a href="<?php print $wgScriptPath; ?>/Resources">Resources</a></li>
+	  		<li><a href="<?php print $wgScriptPath; ?>/User:Ryan">Ryan Scott</a></li>
+	  		<li><a href="<?php print $wgScriptPath; ?>/How_To_Edit">Edit This Site!</a></li>
 	  		<?php if($wgUseCustomContactForms): ?>
-					<li><a href="/Special:Contact_Form?type=suggest">Make a Suggestion</a></li>
-					<li><a href="/Special:Contact_Form?type=issue">Report a Problem</a></li>
+					<li><a href="<?php print $wgScriptPath; ?>/Special:Contact_Form?type=suggest">Make a Suggestion</a></li>
+					<li><a href="<?php print $wgScriptPath; ?>/Special:Contact_Form?type=issue">Report a Problem</a></li>
 	  		<?php endif; ?>
 	  		<?php if($wgUser->mId == 0) { ?>
-	  			<!--<li><a href="/Special:UserLogin&returnto=Welcome_to_The_Library">Log In</a></li>
+	  			<!--<li><a href="<?php print $wgScriptPath; ?>/Special:UserLogin&returnto=Welcome_to_The_Library">Log In</a></li>
 	  			-->
 	  			<li id="header-login">
 	  				<?php
@@ -309,7 +309,7 @@ class OcdlaTemplate extends BaseTemplate {
 		<!-- header -->
 		<!-- moved from below -->
 		<div id="mw-head" class="noprint">
-			<a href="/">
+			<a href="<?php print $wgScriptPath; ?>/">
 				<img src="<?php print $this->skinImagePath; ?>/book.png" style="margin:24px 5px" alt="A Book from the Library of Defense" />
 			</a>
 			<?php /*$this->renderNavigation( 'PERSONAL' );*/ ?>
